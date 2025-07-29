@@ -21,7 +21,7 @@ print("============================================")
 dataset_path = "datasets/snRNA_MTG_10Samples"
 kept_features =[ "nCount_RNA", "nFeature_RNA", "sex", "MajorCellTypes", "updrs", "Complex_Assignment", "mmse", "sample_id", "case",]
 sample_col = "sample_id"
-cluster_col = "Complex_Assignment"
+cluster_col = "MajorCellTypes"
 condition_col = "case"
 
 print("Dataset path: ", dataset_path)

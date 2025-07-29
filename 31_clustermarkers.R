@@ -24,7 +24,7 @@ cat("===================================================\n")
 
 seurat_obj_file <- "Seurats/snRNAseq_MTG_10samples.rds"
 output_dir <- "datasets/snRNA_MTG_10Samples"
-cluster_col <- "Complex_Assignment"
+cluster_col <- "MajorCellTypes"
 condition_col <- "case"
 sample_col <- "sample_id"
 seurat_type <- "snrnaseq"
@@ -185,7 +185,7 @@ pb_obj@meta.data[[cluster_col]] <- gsub("-", "_", pb_obj@meta.data[[cluster_col]
 pb_obj@meta.data[["orig.ident"]] <- gsub("-", "_", pb_obj@meta.data[["orig.ident"]])
 
 metadata = pb_obj@meta.data
-## rename sample_id to sampleId
+## rename, this is needed for the visualization in the data portal
 colnames(metadata)[colnames(metadata) == sample_col] <- "sampleId"
 colnames(metadata)[colnames(metadata) == condition_col] <- "condition"
 
