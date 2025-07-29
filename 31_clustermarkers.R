@@ -1,9 +1,3 @@
-## This script is used to extract the data from the Seurat object.
-## it will extract the data from the Seurat object and save it in a format that can be used for downstream analysis.
-
-## Run R script as follows:
-## Rscript extract_data_SC.R seurat_obj.rds output_directory
-
 library(jsonlite)
 library(Matrix)
 library(data.table)
@@ -28,9 +22,9 @@ cat("===================================================\n")
 # seurat_type <- args[6]
 
 
-seurat_obj_file <- "Seurats/pmdbs/pmdbs_lee_obj_updated_SN.rds"
-output_dir <- "datasets/PMDBS_SN_snRNAseq"
-cluster_col <- "cell_type"
+seurat_obj_file <- "Seurats/snRNAseq_MTG_10samples.rds"
+output_dir <- "datasets/snRNA_MTG_10Samples"
+cluster_col <- "Complex_Assignment"
 condition_col <- "case"
 sample_col <- "sample_id"
 seurat_type <- "snrnaseq"
@@ -56,7 +50,7 @@ if(seurat_type == "scrnaseq" | seurat_type == "snrnaseq"){
 		stop("The Seurat object does not contain the 'RNA' assay.")
 	}
 	# Check if the Seurat object has the necessary assay data
-	if (!"data" %in% names(seurat_obj@assays$RNA@layers)) {
+	if (!"data" %in% slotNames(seurat_obj@assays$RNA)) {
 		stop("The Seurat object does not contain the 'data' slot in the 'RNA' assay.")
 	}
 } else if (seurat_type == "snatacseq" | seurat_type == "scatacseq") {
