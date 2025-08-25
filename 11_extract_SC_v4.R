@@ -14,14 +14,14 @@ library(presto)
 
 cat("===================================================\n")
 # Check if the script is run with the correct number of arguments
-args <- commandArgs(trailingOnly = TRUE)
-if (length(args) != 3) {
-  stop("Please provide the Seurat object file and output directory as arguments.")
-}
+# args <- commandArgs(trailingOnly = TRUE)
+# if (length(args) != 3) {
+#   stop("Please provide the Seurat object file and output directory as arguments.")
+# }
 
 # Get the arguments
-seurat_obj_file <- "Seurats/snRNAseq_MTG_10samples.rds" #args[1]
-output_dir <- "datasets/snRNA_MTG_10Samples" #args[2]
+seurat_obj_file <- "Seurats/Jacobs/DietFullIntegration_Oct2023_FinalOSR_6HC_MTG_FebCA_MajorMarkersUpdated2_SubCellTypes.rds" #args[1]
+output_dir <- "datasets/PD5D_MTG_snRNAseq" #args[2]
 cluster_col <- "MajorCellTypes" #args[3]
 
 
